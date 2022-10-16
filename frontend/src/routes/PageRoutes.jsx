@@ -9,7 +9,9 @@ const PageRoutes = () => (
   <Routes>
     <Route  element={<MainLayout />}>
       <Route path='/' element={<HomeScreen />} />
-      <Route path='/product' element={<ProductScreen />} />
+      <Route path='/product'>
+        <Route path=':id' element={<ProductScreen />} />
+      </Route >
     </Route>
   </Routes>
 );
