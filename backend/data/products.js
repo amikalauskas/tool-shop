@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: '1',
     name: 'Radon Comp BT-11 Multitool incl. Chain Riveter',
     image: '/images/Radon_BT.jpg',
     description:
@@ -13,7 +12,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '2',
     name: 'CrankBrothers Multitool F15',
     image: '/images/CrankBrothers-F15.jpg',
     description:
@@ -26,7 +24,6 @@ const products = [
     numReviews: 8,
   },
   {
-    _id: '3',
     name: 'Topeak Survival Gear Box Multitool Set',
     image: '/images/survival-gear-box-survival-gear-box-1.jpg',
     description:
@@ -39,7 +36,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '4',
     name: 'KMC Chain Aid 5in1 Multitool',
     image: '/images/KMC-Chain-Aid-5in1.jpg',
     description:
@@ -52,7 +48,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '5',
     name: 'Topeak ALiEN X Multitool',
     image: '/images/TT2585.jpg',
     description:
@@ -65,7 +60,6 @@ const products = [
     numReviews: 10,
   },
   {
-    _id: '6',
     name: 'Lezyne Super SV22 Multitool',
     image: '/images/lezyne-1-MT.jpg',
     description:
