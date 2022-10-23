@@ -5,13 +5,13 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 
 const MainLayout = () => (
- <>
+  <>
     <Header />
-      <Container>
-         <Outlet/>
-      </Container>
+    <Container>
+      <Outlet />
+    </Container>
     <Footer />
- </>
+  </>
 );
 
 export default MainLayout;

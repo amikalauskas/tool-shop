@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['eslint:recommended', 'airbnb', 'airbnb/hooks'],
+  extends: ['eslint:recommended', 'airbnb', 'airbnb/hooks', 'prettier'],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',

@@ -1,19 +1,20 @@
 import React from 'react';
-import { Route, Routes,  } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout';
 import HomeScreen from '../screens/HomeScreen';
 import ProductScreen from '../screens/ProductScreen';
+import CartScreen from '../screens/CartScreen';
 
-
-const PageRoutes = () => (
-  <Routes>
-    <Route  element={<MainLayout />}>
-      <Route path='/' element={<HomeScreen />} />
-      <Route path='/product'>
-        <Route path=':id' element={<ProductScreen />} />
-      </Route >
-    </Route>
-  </Routes>
-);
+function PageRoutes() {
+  return (
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<HomeScreen />} />
+        <Route path="/product/:id" element={<ProductScreen />} />
+        <Route path="/cart/:id/" element={<CartScreen />} />
+      </Route>
+    </Routes>
+  );
+}
 
 export default PageRoutes;
