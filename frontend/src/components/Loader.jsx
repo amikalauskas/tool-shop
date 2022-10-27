@@ -12,7 +12,7 @@ const Loader = () => {
         display: 'block',
       }}
     >
-      <span class="er-only">Lodading...</span>
+      <span className="er-only"></span>
     </Spinner>
   );
 };

@@ -9,20 +9,20 @@ import {
   ListGroupItem,
   Form,
 } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Rating from '../components/Rating';
 import { listProductDetails } from '../actions/productActions';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+import { addToCart } from '../actions/cartActions';
 
 const ProductScreen = () => {
-  const [quantity, setQuantity] = useState(0);
+  const [qty, setQty] = useState(1);
   const { id } = useParams();
 
   const dispatch = useDispatch();
-  let navigate = useNavigate();
 
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
@@ -31,7 +31,7 @@ const ProductScreen = () => {
   }, [dispatch, id]);
 
   const addToCartHandler = () => {
-    navigate(`/cart/${id}?qty=${quantity}`);
+    dispatch(addToCart(id, qty));
   };
 
   return (
@@ -79,12 +79,12 @@ const ProductScreen = () => {
                 {product.countInStock > 0 && (
                   <ListGroup.Item>
                     <Row>
-                      <Col>Quantity</Col>
+                      <Col>Qty</Col>
                       <Col>
                         <Form.Control
                           as="select"
-                          value={quantity}
-                          onChange={(e) => setQuantity(e.target.value)}
+                          value={product.qty}
+                          onChange={(e) => setQty(Number(e.target.value))}
                         >
                           {[...Array(product.countInStock).keys()].map((x) => (
                             <option key={x + 1} value={x + 1}>

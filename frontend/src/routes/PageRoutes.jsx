@@ -11,7 +11,7 @@ function PageRoutes() {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomeScreen />} />
         <Route path="/product/:id" element={<ProductScreen />} />
-        <Route path="/cart/:id/" element={<CartScreen />} />
+        <Route path="/cart" element={<CartScreen />} />
       </Route>
     </Routes>
   );
