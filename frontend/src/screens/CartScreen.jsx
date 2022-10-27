@@ -39,7 +39,7 @@ const CartScreen = () => {
           <h1> Shopping Cart</h1>
           {cartItems.length === 0 ? (
             <Message>
-              Your cart is mepty <Link to="/">Go Back</Link>
+              Your cart is empty <Link to="/">Go Back</Link>
             </Message>
           ) : (
             <ListGroup variant="flush">
