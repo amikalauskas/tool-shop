@@ -5,11 +5,14 @@ import Product from '../components/Product';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { listProducts } from '../actions/productActions';
+import Pagination from '../components/Pagination';
 
 const HomeScreen = () => {
   const dispach = useDispatch();
 
   const [searchValue, setSearchValue] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(3);
 
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
@@ -21,10 +24,18 @@ const HomeScreen = () => {
   const filteredProductList = products.filter((product) =>
     product.name.toLowerCase().includes(searchValue.toLowerCase())
   );
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstpostIndex = lastPostIndex - postsPerPage;
+  const currentPosts = filteredProductList.slice(firstpostIndex, lastPostIndex);
+  //
+  const l = products.length;
+  console.log(l);
+  //
+
   return (
     <>
       <h1>Latest products</h1>
-
+      <Pagination />
       <input
         placeholder="Search Products"
         value={searchValue}
@@ -35,14 +46,25 @@ const HomeScreen = () => {
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
-        <Row>
-          {filteredProductList.map((product) => (
-            <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-              <Product product={product} />
-            </Col>
-          ))}
-        </Row>
+        <>
+          <Row>
+            {currentPosts.map((product) => (
+              <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                <Product product={product} />
+              </Col>
+            ))}
+          </Row>
+        </>
       )}
+      <Row>
+        <Col>
+          <Pagination
+            totalPosts={products.length}
+            postsPerPage={postsPerPage}
+            setCurreentPage={setCurrentPage}
+          />
+        </Col>
+      </Row>
     </>
   );
 };
