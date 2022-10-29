@@ -27,10 +27,6 @@ const HomeScreen = () => {
   const lastPostIndex = currentPage * postsPerPage;
   const firstpostIndex = lastPostIndex - postsPerPage;
   const currentPosts = filteredProductList.slice(firstpostIndex, lastPostIndex);
-  //
-  const l = products.length;
-  console.log(l);
-  //
 
   return (
     <>
@@ -59,7 +55,7 @@ const HomeScreen = () => {
       <Row>
         <Col>
           <Pagination
-            totalPosts={products.length}
+            totalPosts={filteredProductList.length}
             postsPerPage={postsPerPage}
             setCurreentPage={setCurrentPage}
           />
